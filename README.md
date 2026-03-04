@@ -1,4 +1,18 @@
-# TCP Group Chat (Java Sockets + JavaFX)
+# Real-Time Group Chat (Java Sockets + JavaFX)
+
+Portfolio-ready Java networking project featuring a multi-client TCP architecture, model-view separation, and a WhatsApp-style dark JavaFX frontend.
+
+## Recommended GitHub Metadata
+- Repository name: `realtime-group-chat-javafx-tcp`
+- About/Description:
+`Real-time TCP group chat in Java/JavaFX with multi-client server architecture, read-only mode, allUsers command, and a WhatsApp-style dark UI.`
+
+## Why This Stands Out for Recruiters
+- End-to-end system design: client-server architecture over TCP sockets.
+- Concurrency handling on server: simultaneous client connections.
+- Clean separation of concerns: socket model logic decoupled from JavaFX UI.
+- Product-quality UI polish: WhatsApp-inspired dark chat interface with message bubbles.
+- Delivery completeness: Maven modules, UML diagrams, run instructions, and demo script.
 
 This repository contains two Maven applications:
 - `TCPServer`: central TCP distributor + JavaFX monitoring UI.
