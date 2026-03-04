@@ -7,7 +7,7 @@ package "TCPServer" {
   class "com.chat.server.ServerApp" as ServerApp
 
   package "com.chat.server.config" {
-    class ConfigLoader
+    class "com.chat.server.config.ConfigLoader" as ServerConfigLoader
     class ServerConfig
   }
 
@@ -28,7 +28,7 @@ package "TCPClient" {
   class "com.chat.client.ClientApp" as ClientApp
 
   package "com.chat.client.config" {
-    class ConfigLoader as ClientConfigLoader
+    class "com.chat.client.config.ConfigLoader" as ClientConfigLoader
     class ClientConfig
   }
 
@@ -52,7 +52,7 @@ ServerController ..|> ChatServerListener
 ServerController --> ChatServer
 ServerController --> UserBadgeModel
 ChatServer --> ServerConfig
-ServerConfig --> ConfigLoader
+ServerConfig --> ServerConfigLoader
 ChatServer --> ClientHandler
 
 TCPClient --> ClientApp
