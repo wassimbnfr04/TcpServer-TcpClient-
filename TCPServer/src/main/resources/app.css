@@ -1,0 +1,131 @@
+.root {
+    -panel-bg: linear-gradient(to bottom right, #0b141a, #111b21);
+    -card-bg: #1f2c34;
+    -card-border: #2a3942;
+    -text-main: #e9edef;
+    -text-muted: #8696a0;
+    -fx-font-family: "Trebuchet MS";
+    -fx-background-color: -panel-bg;
+}
+
+.server-root {
+    -fx-background-color:
+            linear-gradient(to bottom, #0b141a, #0f1a20),
+            linear-gradient(to right, rgba(255,255,255,0.01), rgba(255,255,255,0.0));
+    -fx-background-insets: 0, 0;
+}
+
+.label {
+    -fx-text-fill: -text-main;
+}
+
+.header-card {
+    -fx-background-color: -card-bg;
+    -fx-background-radius: 18;
+    -fx-border-color: -card-border;
+    -fx-border-radius: 18;
+    -fx-padding: 14 18;
+}
+
+.header-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-main;
+}
+
+.header-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: -text-muted;
+}
+
+.state-chip {
+    -fx-background-color: #111b21;
+    -fx-background-radius: 999;
+    -fx-border-color: -card-border;
+    -fx-border-radius: 999;
+    -fx-padding: 7 12;
+}
+
+.card-panel {
+    -fx-background-color: -card-bg;
+    -fx-background-radius: 18;
+    -fx-border-color: -card-border;
+    -fx-border-radius: 18;
+    -fx-padding: 14;
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-main;
+}
+
+.online-count {
+    -fx-font-size: 12px;
+    -fx-text-fill: -text-muted;
+}
+
+.users-list {
+    -fx-background-color: #0f171d;
+    -fx-background-radius: 12;
+    -fx-border-color: #31434d;
+    -fx-border-radius: 12;
+    -fx-background-insets: 0;
+    -fx-padding: 2;
+}
+
+.users-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 4;
+}
+
+.users-list .list-cell:filled:selected {
+    -fx-background-color: transparent;
+}
+
+.users-list .viewport {
+    -fx-background-color: transparent;
+}
+
+.users-list .virtual-flow .clipped-container .sheet {
+    -fx-background-color: transparent;
+}
+
+.user-name {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #132a21;
+}
+
+.user-status {
+    -fx-font-size: 10px;
+    -fx-padding: 2 6;
+    -fx-background-color: rgba(17, 27, 33, 0.70);
+    -fx-background-radius: 999;
+    -fx-text-fill: #bfe8d3;
+}
+
+.log-area {
+    -fx-background-color: #0f171d;
+    -fx-control-inner-background: #0f171d;
+    -fx-inner-background: #0f171d;
+    -fx-background-radius: 12;
+    -fx-border-color: #31434d;
+    -fx-border-radius: 12;
+    -fx-text-fill: -text-main;
+    -fx-highlight-fill: #1e4e3a;
+    -fx-highlight-text-fill: #f5fff9;
+    -fx-prompt-text-fill: #7f919b;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.log-area .content {
+    -fx-background-color: #0f171d;
+    -fx-background-radius: 12;
+}
+
+.log-area .scroll-pane,
+.log-area .scroll-pane .viewport {
+    -fx-background-color: #0f171d;
+}

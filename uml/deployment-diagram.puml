@@ -1,0 +1,45 @@
+@startuml
+title TCP Group Chat - Deployment Diagram
+skinparam componentStyle rectangle
+
+node "Server Host" {
+  artifact "tcp-server-1.0.0.jar" as ServerJar
+  component "ServerApp (JavaFX UI)" as ServerUI
+  component "ChatServer (TCP Model)" as ServerModel
+  component "config.properties" as ServerConfigFile
+  ServerJar -- ServerUI
+  ServerJar -- ServerModel
+  ServerJar -- ServerConfigFile
+}
+
+node "Client Host A" {
+  artifact "tcp-client-1.0.0.jar" as ClientJarA
+  component "ClientApp (JavaFX UI)" as ClientUIA
+  component "ChatClient (TCP Model)" as ClientModelA
+  component "UI Parser/Bubbles" as ClientUiHelpersA
+  ClientJarA -- ClientUIA
+  ClientJarA -- ClientModelA
+  ClientJarA -- ClientUiHelpersA
+}
+
+node "Client Host B" {
+  artifact "tcp-client-1.0.0.jar" as ClientJarB
+  component "ClientApp (JavaFX UI)" as ClientUIB
+  component "ChatClient (TCP Model)" as ClientModelB
+  component "UI Parser/Bubbles" as ClientUiHelpersB
+  ClientJarB -- ClientUIB
+  ClientJarB -- ClientModelB
+  ClientJarB -- ClientUiHelpersB
+}
+
+ServerModel <--> ClientModelA : TCP/IP (server.port)
+ServerModel <--> ClientModelB : TCP/IP (server.port)
+
+note right of ServerUI
+Server screen shows status, user list with colored badges, and logs.
+end note
+
+note right of ClientUIA
+Client screen shows WhatsApp-style chat bubbles, active users, and read-only banner.
+end note
+@enduml

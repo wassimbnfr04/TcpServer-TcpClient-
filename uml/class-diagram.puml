@@ -1,0 +1,72 @@
+@startuml
+title TCP Group Chat - Class Diagram
+skinparam packageStyle rectangle
+
+package "TCPServer" {
+  class TCPServer
+  class "com.chat.server.ServerApp" as ServerApp
+
+  package "com.chat.server.config" {
+    class ConfigLoader
+    class ServerConfig
+  }
+
+  package "com.chat.server.model" {
+    interface ChatServerListener
+    class ChatServer
+    class "ChatServer.ClientHandler" as ClientHandler
+  }
+
+  package "com.chat.server.ui" {
+    class ServerController
+    class UserBadgeModel
+  }
+}
+
+package "TCPClient" {
+  class TCPClient
+  class "com.chat.client.ClientApp" as ClientApp
+
+  package "com.chat.client.config" {
+    class ConfigLoader as ClientConfigLoader
+    class ClientConfig
+  }
+
+  package "com.chat.client.model" {
+    interface ChatClientListener
+    class ChatClient
+  }
+
+  package "com.chat.client.ui" {
+    class ClientController
+    class UiMessage
+    enum UiMessageType
+    class MessageLineParser
+    class MessageBubbleCell
+  }
+}
+
+TCPServer --> ServerApp
+ServerApp --> ServerController
+ServerController ..|> ChatServerListener
+ServerController --> ChatServer
+ServerController --> UserBadgeModel
+ChatServer --> ServerConfig
+ServerConfig --> ConfigLoader
+ChatServer --> ClientHandler
+
+TCPClient --> ClientApp
+ClientApp --> ClientController
+ClientController ..|> ChatClientListener
+ClientController --> ChatClient
+ClientController --> ClientConfig
+ClientConfig --> ClientConfigLoader
+ClientController --> MessageLineParser
+ClientController --> UiMessage
+UiMessage --> UiMessageType
+MessageBubbleCell --> UiMessage
+
+note "Model and JavaFX view are decoupled via listener contracts." as N1
+ServerController .. N1
+ClientController .. N1
+@enduml
